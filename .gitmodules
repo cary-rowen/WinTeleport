@@ -1,0 +1,3 @@
+[submodule "addon/pyvdaRepo"]
+	path = addon/pyvdaRepo
+	url = https://github.com/mirober/pyvda.git
