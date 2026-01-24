@@ -23,10 +23,10 @@ addon_info = AddonInfo(
 	# Translators: Long description to be shown for this add-on on add-on information from add-on store
 	addon_description=_("""WinTeleport - Move windows between virtual desktops with keyboard shortcuts."""),
 	# version
-	addon_version="0.3.0",
+	addon_version="0.3.1",
 	# Brief changelog for this version
 	# Translators: what's new content for the add-on version to be shown in the add-on store
-	addon_changelog=_("""Initial version."""),
+	addon_changelog=_("""A critical bug that caused loading to fail and prevent the app from working has been fixed."""),
 	# Author(s)
 	addon_author="Cary-rowen <manchen_0528@outlook.com>",
 	# URL for the add-on documentation support

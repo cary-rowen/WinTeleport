@@ -1,1 +1,1 @@
-Use this file to explain what has changed in your add-on since the previous release. This will be included automatically in the release description when used with GitHub actions.
+A critical bug that caused loading to fail and prevent the app from working has been fixed.
