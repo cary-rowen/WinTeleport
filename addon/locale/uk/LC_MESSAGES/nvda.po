@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the WinTeleport package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WinTeleport 0.3.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2026-01-31 15:21+0000\n"
+"PO-Revision-Date: 2026-01-31 18:49+0200\n"
+"Last-Translator: Nazarii Balanda <balaraz@tuta.io>\n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#. Translators: Default name for a virtual desktop. {number} is the desktop number.
+#: addon/globalPlugins/WinTeleport/__init__.py:74
+#, python-brace-format
+msgid "Desktop {number}"
+msgstr "Робочий стіл {number}"
+
+#. Translators: The name of the category for this add-on's scripts in the Input Gestures dialog.
+#. Add-on summary/title, usually the user visible name of the add-on
+#. Translators: Summary/title for this add-on
+#. to be shown on installation and add-on information found in add-on store
+#: addon/globalPlugins/WinTeleport/__init__.py:103 buildVars.py:21
+msgid "WinTeleport"
+msgstr "Вікноліт"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:168
+msgid "Move the focused window to the left virtual desktop"
+msgstr "Перемістити активне вікно на лівий віртуальний робочий стіл"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:175
+msgid "Move the focused window to the right virtual desktop"
+msgstr "Перемістити активне вікно на правий віртуальний робочий стіл"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:182
+msgid "Move the focused window to the left virtual desktop and switch to it"
+msgstr ""
+"Перемістити активне вікно на лівий віртуальний робочий стіл та перемкнутись "
+"на нього"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:190
+msgid "Move the focused window to the right virtual desktop and switch to it"
+msgstr ""
+"Перемістити активне вікно на правий віртуальний робочий стіл та "
+"перемкнутись на нього"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:198
+msgid "Report the current virtual desktop"
+msgstr "Повідомити поточний робочий стіл"
+
+#. Translators: Message for reporting current desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:211
+#, python-brace-format
+msgid "{name} ({number} of {total})"
+msgstr "{name} ({number} з {total})"
+
+#. Translators: Describes a command in Input Help mode and Input Gestures dialog.
+#: addon/globalPlugins/WinTeleport/__init__.py:226
+msgid "Move the focused window to the specified virtual desktop"
+msgstr "Перемістити активне вікно на вказаний віртуальний робочий стіл"
+
+#. Translators: Error message when no window is focused.
+#: addon/globalPlugins/WinTeleport/__init__.py:234
+#: addon/globalPlugins/WinTeleport/__init__.py:267
+msgid "No focused window to move"
+msgstr "Немає активного вікна для переміщення"
+
+#. Translators: Message when there is only one virtual desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:239
+msgid "Only one desktop available"
+msgstr "Доступний тільки один робочий стіл"
+
+#. Translators: Message when already on the first desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:245
+msgid "Already on the first desktop"
+msgstr "Вже на першому робочому столі"
+
+#. Translators: Message when already on the last desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:249
+msgid "Already on the last desktop"
+msgstr "Вже на останньому робочому столі"
+
+#. Translators: Error message when window move fails.
+#: addon/globalPlugins/WinTeleport/__init__.py:254
+#: addon/globalPlugins/WinTeleport/__init__.py:280
+msgid "Failed to move window"
+msgstr "Не вдалося меремістити вікно"
+
+#. Translators: Message when desktop doesn't exist.
+#: addon/globalPlugins/WinTeleport/__init__.py:272
+#, python-brace-format
+msgid "Desktop {number} does not exist. {total} desktops available."
+msgstr "Робочого столу {number} не існує. Є тільки {total} робочих столів."
+
+#. Translators: Message after moving window and switching desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:292
+#, python-brace-format
+msgid "Moved and switched to {name}"
+msgstr "Переміщено та переключено на{name}"
+
+#. Translators: Message after moving window to another desktop.
+#: addon/globalPlugins/WinTeleport/__init__.py:295
+#, python-brace-format
+msgid "Moved to {name}"
+msgstr "Переміщено до {name}"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-on store
+#: buildVars.py:24
+msgid ""
+"WinTeleport - Move windows between virtual desktops with keyboard shortcuts."
+msgstr ""
+"Вікноліт — переміщує вікна між віртуальними робочими столами клавіатурними "
+"скороченнями."
+
+#. Brief changelog for this version
+#. Translators: what's new content for the add-on version to be shown in the add-on store
+#: buildVars.py:29
+msgid ""
+"A critical bug that caused loading to fail and prevent the app from working "
+"has been fixed."
+msgstr ""
+"Виправлено критичну помилку, яка спричиняла збій завантаження та "
+"перешкоджала роботі програми,."
