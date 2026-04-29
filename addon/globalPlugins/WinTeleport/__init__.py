@@ -76,13 +76,15 @@ def _getDesktopDisplayName(desktop: VirtualDesktop) -> str:
 
 _F = TypeVar("_F", bound=Callable)
 
+
 def _withComRetry(func: _F) -> _F:
 	"""Decorator that retries COM operations once if RPC becomes unavailable.
-	
+
 	When Windows Shell restarts, COM connections become stale. This decorator
 	catches RPC_S_SERVER_UNAVAILABLE errors, reinitializes the COM managers,
 	and retries the operation once silently.
 	"""
+
 	@functools.wraps(func)
 	def wrapper(self, *args, **kwargs):
 		for attempt in range(2):
@@ -95,6 +97,7 @@ def _withComRetry(func: _F) -> _F:
 					continue
 				log.debugWarning("COM error in %s: %s", func.__name__, e)
 				raise
+
 	return wrapper  # type: ignore
 
 
@@ -128,7 +131,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _moveWindowToDesktop(self, hwnd: int, targetDesktop: VirtualDesktop) -> bool:
 		"""Move a window to a target desktop.
-		
+
 		Tries AppView.move() first for full feature support,
 		falls back to IVirtualDesktopManager for broader compatibility.
 		"""
@@ -152,7 +155,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _focusNextWindow(self) -> None:
 		"""Focus the next visible window on the current desktop.
-		
+
 		Called after moving a window away to prevent focus from being lost.
 		"""
 		try:
@@ -165,14 +168,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@script(
 		# Translators: Describes a command in Input Help mode and Input Gestures dialog.
-		description=_("Move the focused window to the left virtual desktop")
+		description=_("Move the focused window to the left virtual desktop"),
 	)
 	def script_moveWindowToLeftDesktop(self, gesture: InputGesture) -> None:
 		self._moveToAdjacentDesktop(direction=-1, followWindow=False)
 
 	@script(
 		# Translators: Describes a command in Input Help mode and Input Gestures dialog.
-		description=_("Move the focused window to the right virtual desktop")
+		description=_("Move the focused window to the right virtual desktop"),
 	)
 	def script_moveWindowToRightDesktop(self, gesture: InputGesture) -> None:
 		self._moveToAdjacentDesktop(direction=1, followWindow=False)
@@ -208,11 +211,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		desktopCount = len(get_virtual_desktops())
 		name = _getDesktopDisplayName(currentDesktop)
 		# Translators: Message for reporting current desktop.
-		ui.message(_("{name} ({number} of {total})").format(
-			name=name,
-			number=currentDesktop.number,
-			total=desktopCount,
-		))
+		ui.message(
+			_("{name} ({number} of {total})").format(
+				name=name,
+				number=currentDesktop.number,
+				total=desktopCount,
+			),
+		)
 
 	def script_moveWindowToDesktopN(self, gesture: InputGesture) -> None:
 		try:
@@ -269,10 +274,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		desktops = get_virtual_desktops()
 		if number > len(desktops):
 			# Translators: Message when desktop doesn't exist.
-			ui.message(_("Desktop {number} does not exist. {total} desktops available.").format(
-				number=number,
-				total=len(desktops),
-			))
+			ui.message(
+				_("Desktop {number} does not exist. {total} desktops available.").format(
+					number=number,
+					total=len(desktops),
+				),
+			)
 			return
 		targetDesktop = desktops[number - 1]
 		if not self._moveWindowToDesktop(hwnd, targetDesktop):
