@@ -110,7 +110,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Reinitialize pyvda's COM managers after connection loss."""
 		log.debug("Reinitializing pyvda COM managers")
 		newManagers = pyvda.utils.Managers()
-		pyvda.utils.managers = newManagers
 		# Update the reference in pyvda.pyvda module as well
 		if hasattr(pyvda, "pyvda") and hasattr(pyvda.pyvda, "managers"):
 			pyvda.pyvda.managers = newManagers
@@ -137,6 +136,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			AppView(hwnd=hwnd).move(targetDesktop)
 			return True
 		except COMError as e:
+			if _isRpcUnavailableError(e):
+				raise
 			if not _isElementNotFoundError(e):
 				log.error("COM error moving window via AppView: %s", e)
 				return False
@@ -147,6 +148,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			manager.MoveWindowToDesktop(hwnd, targetDesktop.id)
 			return True
 		except COMError as e:
+			if _isRpcUnavailableError(e):
+				raise
 			log.error("COM error moving window via VDManager: %s", e)
 			return False
 
@@ -267,7 +270,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("No focused window to move"))
 			return
 		desktops = get_virtual_desktops()
-		if number > len(desktops):
+		if number < 1 or number > len(desktops):
 			# Translators: Message when desktop doesn't exist.
 			ui.message(_("Desktop {number} does not exist. {total} desktops available.").format(
 				number=number,
